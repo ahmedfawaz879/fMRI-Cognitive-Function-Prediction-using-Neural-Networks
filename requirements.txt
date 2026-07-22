@@ -1,0 +1,11 @@
+# Runtime dependencies, exactly pinned for reproducibility.
+# Verified installable together via `pip install -r requirements.txt`
+# on Python 3.12 (Windows) as part of this refactor.
+numpy==1.26.4
+pandas==2.2.2
+nibabel==5.2.1
+matplotlib==3.8.4
+scikit-learn==1.4.2
+torch==2.3.0
+joblib==1.4.2
+pyyaml==6.0.1
