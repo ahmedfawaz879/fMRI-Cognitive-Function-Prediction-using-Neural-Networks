@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fmri-cognition"
+version = "0.1.0"
+description = "Predict cognitive function from fMRI-derived white matter tract features using an MLP (implementation only; not yet evaluated on benchmark data)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
