@@ -1,0 +1,33 @@
+# Default hyperparameters for the tract-feature MLP pipeline.
+# These are the exact values that were hardcoded as module-level
+# constants in the original predict_cognition_nn.py script.
+
+seed: 42
+
+tract_names:
+  - or_l
+  - or_r
+  - af_l
+  - af_r
+  - atr_l
+  - atr_r
+  - slf2_l
+  - slf2_r
+
+features_per_tract: 3  # mean, max, non-zero voxel count
+
+model:
+  hidden_dim: 64  # architecture: hidden_dim -> hidden_dim // 2 -> 1
+
+training:
+  epochs: 200
+  learning_rate: 0.001
+  # NOTE: the original script defined a BATCH_SIZE=32 constant but never
+  # actually used it to mini-batch training -- every epoch was a
+  # full-batch gradient step over the whole training fold. That real
+  # behavior is preserved in train.py; no batch_size setting is exposed
+  # here so the config doesn't imply behavior the code doesn't have.
+
+cv:
+  n_splits: 5
+  shuffle: true
