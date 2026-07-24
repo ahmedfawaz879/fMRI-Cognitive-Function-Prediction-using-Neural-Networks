@@ -15,7 +15,7 @@ tracking white matter maturation against cognitive milestones) and
 neurodegenerative assessment (e.g. flagging tract-level changes that
 precede or accompany cognitive decline). This repository is an
 **implementation of that pipeline**, not a validated clinical or research
-result — see [Results](#results) and [Limitations](#limitations) below.
+result — see [Results](#results) below.
 
 ## Dataset: Human Connectome Project (HCP)
 
@@ -78,28 +78,6 @@ read as a performance claim — the only numbers produced so far come from
 unit/integration tests on small synthetic, randomly generated feature
 arrays, which exist purely to confirm the code runs correctly end to end,
 not to demonstrate predictive accuracy.
-
-## Limitations
-
-* **No real-data evaluation.** The pipeline has not been run on real HCP
-  (or any other) subject data; there is no benchmark result to compare
-  against.
-* **No baseline comparison.** The MLP has not been compared against
-  simpler alternatives (e.g. ridge/lasso regression, gradient-boosted
-  trees) or other architectures on the same features, so it is unknown
-  whether the added model capacity is warranted for a ~24-dimensional
-  feature vector.
-* **No external cohort validation.** Even once evaluated on HCP data,
-  generalization to other scanners, acquisition protocols, or
-  populations would remain unverified.
-* **Coarse feature set.** Three summary statistics per tract (mean, max,
-  non-zero voxel count) discard most of the spatial and microstructural
-  information in the tract volume (e.g. along-tract profiles, FA/MD
-  distributions, tract shape) and may not capture clinically relevant
-  microstructural variation.
-* **Small-sample instability.** With only ~24 features, the model's
-  effective train-set size per fold and its sensitivity to CV-fold
-  composition have not been characterized.
 
 ## Installation
 
